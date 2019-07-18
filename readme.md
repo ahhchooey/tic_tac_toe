@@ -1,4 +1,5 @@
-learning to use git to sync, branch, push, pull, etc.
+Tic Tac Toe Web Page
 
-tic tac toe game does not actually work as of now
-someday I will put a real file here
+Created using vanilla css, html5, and js with es6.
+
+
