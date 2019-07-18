@@ -1,21 +1,71 @@
 <!DOCTYPE html>
 
-<html>
-  <head>
-    <title>TICTACTOE</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" src="styles.css">
-  </head>
+<html lang="en">
 
-  <body>
-    <header>
-      Tic Tac Toe
-    </header>
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="A simple tic tac toe game against a computer.">
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
 
-    <body>
+<body>
+  <header>
+    <h1>Tic Tac Toe</h1>
+  </header>
 
+  <div class="whos-turn">
+    <p id="turn-statement">It's your turn first. Click a spot to begin.</p>
+  </div>
 
-      <script src="app.js" charset="utf-8"></script>
-    </body>
-  </body>
+  <div class="ttt-game">
+    <div id="board">
+      <img src="images/lines.png" alt="Image of the tic tac toe board.">
+    </div>
+
+    <div class="xo" id="top-left">
+      <img src="images/x.png" alt="top left square">
+    </div>
+
+    <div class="xo" id="top-middle">
+      <img src="images/o.png" alt="top middle square">
+    </div>
+
+    <div class="xo" id="top-right">
+      <img src="images/x.png" alt="top right square">
+    </div>
+
+    <div class="xo" id="mid-left">
+      <img src="images/o.png" alt="middle left square">
+    </div>
+
+    <div class="xo" id="mid-middle">
+      <img src="images/x.png" alt="middle square">
+    </div>
+
+    <div class="xo" id="mid-right">
+      <img src="images/o.png" alt="middle right square">
+    </div>
+    
+    <div class="xo" id="bot-left">
+      <img src="images/x.png" alt="bottom left square">
+    </div>
+
+    <div class="xo" id="bot-middle">
+      <img src="images/x.png" alt="bottom middle square">
+    </div>
+    
+    <div class="xo" id="bot-right">
+      <img src="images/x.png" alt="bottom right square">
+    </div>
+  </div>
+
+  <div class="result">
+    <p>You lose. Would you like to play again?</p>
+    <div id="replay-button">replay</div>
+  </div>
+
+  <script src="app.js" charset="UTF-8"></script>
+</body>
+
 </html>
