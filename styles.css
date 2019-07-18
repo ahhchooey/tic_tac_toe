@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  font-size: 10px;
+  text-align: center;
+}
+
+header {
+  background-color: #EEE;
+  padding: 20px;
+}
+
+header > h1 {
+  font-size: 50px;
+}
+
+body {
+  background-color: #DDD;
+}
+
+.whos-turn {
+  font-weight: bold;
+  padding-top: 40px;
+}
+
+#turn-statement {
+  font-size: 25px;
+}
+
+.ttt-game {
+  padding: 65px;
+}
+
+#board {
+  position: absolute;
+  padding: 25px;
+  left: 25%;
+}
+
+.xo > img {
+  width: 150px;
+  height: 110px;
+}
+
+#top-left {
+  position: absolute;
+  left: 30%;
+  top: 30%;
+}
+
+#top-middle {
+  position: absolute;
+  left: 45%;
+}
+
+#top-right {
+  position: absolute;
+  left: 59%;
+  top: 28%;
+}
+
+#mid-left {
+  position: absolute;
+  left: 30%;
+  top: 50%;
+}
+
+#mid-middle {
+  position: absolute;
+  left: 44%;
+  top: 48%;
+}
+
+#mid-right {
+  position: absolute;
+  left: 59%;
+  top: 47%;
+}
+
+#bot-left {
+  position: absolute;
+  left: 30%;
+  top: 68%;
+}
+
+#bot-middle {
+  position: absolute;
+  left: 44%;
+  top: 67%;
+}
+
+#bot-right {
+  position: absolute;
+  left: 58%;
+  top: 65%;
+}
+
+.result {
+  position: fixed;
+  top: 85%;
+  left: 38%;
+}
+
+.result > p {
+  font-size: 20px;
+}
+
+#replay-button {
+  font-size: 20px;
+  background-color: #933;
+  padding: 5px;
+  border: 2px solid black;
+  border-radius: 10%;
+}
