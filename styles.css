@@ -46,57 +46,69 @@ body {
   height: 110px;
 }
 
+.xo {
+  box-sizing: content-box; 
+}
+
+.xo:hover {
+  cursor: pointer;
+  border: 1px solid #cdc;
+  border-radius: 5%;
+  box-shadow: 1px 1px 1px #bcb;
+}
+
 #top-left {
   position: absolute;
-  left: 30%;
-  top: 30%;
+  left: 30.7%;
+  top: 31%;
 }
 
 #top-middle {
   position: absolute;
   left: 45%;
+  top: 29.5%;
 }
 
 #top-right {
   position: absolute;
-  left: 59%;
-  top: 28%;
+  left: 58.3%;
+  top: 29.3%;
 }
 
 #mid-left {
   position: absolute;
-  left: 30%;
-  top: 50%;
+  left: 30.8%;
+  top: 49.5%;
 }
 
 #mid-middle {
   position: absolute;
-  left: 44%;
-  top: 48%;
+  left: 45%;
+  top: 47.7%;
 }
 
 #mid-right {
   position: absolute;
-  left: 59%;
+  left: 58.5%;
   top: 47%;
 }
 
 #bot-left {
   position: absolute;
-  left: 30%;
-  top: 68%;
+  left: 30.85%;
+  top: 69%;
 }
 
 #bot-middle {
   position: absolute;
-  left: 44%;
-  top: 67%;
+  left: 45%;
+  top: 66%;
 }
 
 #bot-right {
   position: absolute;
-  left: 58%;
-  top: 65%;
+  left: 58.5%;
+  top: 64.5%;
 }
 
 .result {
