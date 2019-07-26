@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Darker+Grotesque:400,700&display=swap');
 
 * {
   margin: 0;
@@ -7,17 +7,19 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Darker Grotesque', sans-serif; 
   font-size: 12px;
-  background: #558;
+  background: #447;
   text-align: center;
-  color: #222;
+  color: #114;
+  z-index: 999;
 }
 
 header {
   padding-top: 15px;
   padding-bottom: 10px;
   font-size: 20px;
+  background-color: #DDD;
 }
 
 .whos-turn p {
@@ -46,15 +48,20 @@ header {
 
 #game-board {
   display: flex;
-  flex-flow: row wrap;
   height: 500px;
   width: 500px;
+  flex-flow: row wrap;
 }
 
 .game-box {
   flex-basis: 33.333%;
+  height: 33.333%;
+  border: 2px solid #113;
   background: #BBB;
-  border: 2px solid black;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 105px;
+  font-weight: bold;
 }
 
 .game-box:hover {
