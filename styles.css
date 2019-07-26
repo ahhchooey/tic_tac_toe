@@ -4,127 +4,80 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
-  font-size: 10px;
-  text-align: center;
-}
-
-header {
-  background-color: #EEE;
-  padding: 20px;
-}
-
-header > h1 {
-  font-size: 50px;
 }
 
 body {
-  background-color: #DDD;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  background: #558;
+  text-align: center;
+  color: #222;
 }
 
-.whos-turn {
-  font-weight: bold;
-  padding-top: 40px;
-}
-
-#turn-statement {
-  font-size: 25px;
-}
-
-.ttt-game {
-  padding: 65px;
-}
-
-#board {
-  position: absolute;
-  padding: 25px;
-  left: 25%;
-}
-
-.xo > img {
-  width: 150px;
-  height: 110px;
-}
-
-.xo {
-  box-sizing: content-box; 
-}
-
-.xo:hover {
-  cursor: pointer;
-  border: 1px solid #cdc;
-  border-radius: 5%;
-  box-shadow: 1px 1px 1px #bcb;
-}
-
-#top-left {
-  position: absolute;
-  left: 30.7%;
-  top: 31%;
-}
-
-#top-middle {
-  position: absolute;
-  left: 45%;
-  top: 29.5%;
-}
-
-#top-right {
-  position: absolute;
-  left: 58.3%;
-  top: 29.3%;
-}
-
-#mid-left {
-  position: absolute;
-  left: 30.8%;
-  top: 49.5%;
-}
-
-#mid-middle {
-  position: absolute;
-  left: 45%;
-  top: 47.7%;
-}
-
-#mid-right {
-  position: absolute;
-  left: 58.5%;
-  top: 47%;
-}
-
-#bot-left {
-  position: absolute;
-  left: 30.85%;
-  top: 69%;
-}
-
-#bot-middle {
-  position: absolute;
-  left: 45%;
-  top: 66%;
-}
-
-#bot-right {
-  position: absolute;
-  left: 58.5%;
-  top: 64.5%;
-}
-
-.result {
-  position: fixed;
-  top: 85%;
-  left: 38%;
-}
-
-.result > p {
+header {
+  padding-top: 15px;
+  padding-bottom: 10px;
   font-size: 20px;
 }
 
-#replay-button {
-  font-size: 20px;
-  background-color: #933;
-  padding: 5px;
+.whos-turn p {
+  font-size: 15px;
+}
+
+#sec {
+  position: relative;
+  text-align: center;
+  margin-top: -20px;
+}
+
+.board-container {
+  height: 90vh;
+  width: 90vw;
+  margin: auto auto;
+}
+
+#game-board-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#game-board {
+  display: flex;
+  flex-flow: row wrap;
+  height: 500px;
+  width: 500px;
+}
+
+.game-box {
+  flex-basis: 33.333%;
+  background: #BBB;
   border: 2px solid black;
-  border-radius: 10%;
 }
+
+.game-box:hover {
+  background: #ACA;
+}
+
+@media all and (max-width: 610px) {
+  #game-board{
+   width: 450px;
+   height: 450px;
+ }
+ .box {
+  flex-basis:33.333%;
+}
+}
+
+@media all and (max-height: 610px) {
+  #game-board{
+   width: 400px;
+   height: 400px;
+ }
+ .box {
+  flex-basis:33.333%;
+}
+}
+
