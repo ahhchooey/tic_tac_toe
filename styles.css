@@ -9,10 +9,9 @@
 body {
   font-family: 'Darker Grotesque', sans-serif; 
   font-size: 12px;
-  background: #447;
+  background: #223;
   text-align: center;
   color: #114;
-  z-index: 999;
 }
 
 header {
@@ -57,7 +56,7 @@ header {
   flex-basis: 33.333%;
   height: 33.333%;
   border: 2px solid #113;
-  background: #BBB;
+  background: #CCC;
   text-align: center;
   vertical-align: middle;
   font-size: 105px;
@@ -66,6 +65,14 @@ header {
 
 .game-box:hover {
   background: #ACA;
+}
+
+.game-result {
+  display: block;
+  border: 2px solid black;
+  z-index: 999;
+  height: 20vh;
+  width: 25vh;
 }
 
 @media all and (max-width: 610px) {
