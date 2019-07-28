@@ -106,7 +106,6 @@ function displayWinner(mark) {
 
 function game() {
   reset();
-
 };
 
 
