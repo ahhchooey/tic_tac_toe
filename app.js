@@ -5,6 +5,8 @@ let playerIndices = [];
 let compIndices = [];
 
 const resultBox_div = document.querySelector('.game-result')
+const result_p = document.getElementById('result')
+const resultButton_button = document.getElementById('replay-button')
 const winningCombos = [
   [0,1,2],
   [3,4,5],
@@ -21,6 +23,9 @@ const boxes = document.querySelectorAll('.game-box');
 
 
 function reset() {
+  resultBox_div.style.setProperty("display", "none");
+  playerIndices = [];
+  compIndices = [];
   for (let i = 0; i < boxes.length; i++) {
     board[i] = "";
     boxes[i].innerHTML = "";
@@ -36,10 +41,12 @@ function sleep(ms) {
 function playerClick(box) {
   markBox(box.target.id, playerMark);
   let won = winner(playerMark);  
+  let tied = tie();
   if (won) {
     displayWinner(playerMark);
     return;
   };
+  if (tied) {itsATie()};
   compIndex = compChooseBox();
   sleep(1000).then(compClick(compIndex))
   won = winner(compMark);
@@ -96,11 +103,21 @@ function gameOver() {
   return false;
 };
 
+function itsATie() {
+  for (i = 0; i < board.length; i++) {
+    boxes[i].removeEventListener('click', playerClick);    
+  };
+  result_p.innerHTML = `It's a tie. \n Would you like to play again?`;
+  resultButton_button.addEventListener('click', game);
+  resultBox_div.style.setProperty("display", "block");
+}
+
 function displayWinner(mark) {
   for (i = 0; i < board.length; i++) {
     boxes[i].removeEventListener('click', playerClick);    
   };
-  resultBox_div.innerHTML = "${mark} WINS!";
+  result_p.innerHTML = `${mark} WINS!! \n Would you like to play again?`;
+  resultButton_button.addEventListener('click', game);
   resultBox_div.style.setProperty("display", "block");
 };
 
