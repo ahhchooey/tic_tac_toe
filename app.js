@@ -3,6 +3,7 @@ const playerMark = "X";
 const compMark = "O";
 let playerIndices = [];
 let compIndices = [];
+let tempIndices = [];
 
 const resultBox_div = document.querySelector('.game-result')
 const result_p = document.getElementById('result')
@@ -21,7 +22,6 @@ const winningCombos = [
 var board = ["", "", "", "", "", "", "", "", ""];
 const boxes = document.querySelectorAll('.game-box');
 
-
 function reset() {
   resultBox_div.style.setProperty("display", "none");
   playerIndices = [];
@@ -35,7 +35,7 @@ function reset() {
 };
 
 function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, sleep));
+  return new Promise(resolve => setTimeout(resolve, ms));
 };
 
 function playerClick(box) {
@@ -46,22 +46,64 @@ function playerClick(box) {
     displayWinner(playerMark);
     return;
   };
-  if (tied) {itsATie()};
-  compIndex = compChooseBox();
-  sleep(1000).then(compClick(compIndex))
+  if (tied) {
+    itsATie();
+    return;
+  };
+  compIndex = compChooseBoxLevel10();
+  compClick(compIndex);
   won = winner(compMark);
   if (won) {
     displayWinner(compMark);
-    return;
   };
 };
 
 function compChooseBox() {
   let emptyIndices = []
-  for (let i = 0; i < board.length; i ++) {
+  for (let i = 0; i < 9; i ++) {
     if ( board[i] == "" ) { emptyIndices.push(i) }
   };
   return emptyIndices[Math.floor(Math.random() * emptyIndices.length)];
+};
+
+function compChooseBoxLevel10() {
+  let emptyIndices = []
+  for (let i = 0; i < 9; i++) {
+    if ( board[i] == "" ) { emptyIndices.push(i) }
+  };
+  let winner = compWinningMove(emptyIndices);
+  if (winner || winner === 0) {return winner};
+  let block = blockWinningMove(emptyIndices);
+  if (block || block === 0) {return block};
+  return emptyIndices[Math.floor(Math.random() * emptyIndices.length)];
+};
+
+function compWinningMove(emptyIndices) {
+  for (let i = 0; i < emptyIndices.length; i++) {
+    tempIndices = [];
+    for (let t = 0; t < compIndices.length; t++) {
+      tempIndices.push(compIndices[t]);
+    };
+    tempIndices.push(emptyIndices[i]);
+    for (let j = 0; j < winningCombos.length; j++) {
+      if (winningCombos[j].every(idx => tempIndices.includes(idx))) {return emptyIndices[i]}
+    };
+  };
+  return null;
+};
+
+function blockWinningMove(emptyIndices) {
+  for (let i = 0; i < emptyIndices.length; i++) {
+    tempIndices = [];
+    for (let t = 0; t < playerIndices.length; t++) {
+      tempIndices.push(playerIndices[t]);
+    };
+    tempIndices.push(emptyIndices[i]);
+    for (let j = 0; j < winningCombos.length; j++) {
+      if (winningCombos[j].every(idx => tempIndices.includes(idx))) {return emptyIndices[i]}
+    };
+  };
+  return null
 };
 
 function compClick(boxId) {
@@ -75,18 +117,16 @@ function markBox(boxId, mark) {
   else if ( mark == "O" ) {compIndices.push(parseInt(boxId))};
   boxes[boxId].removeEventListener("click", playerClick);
   boxes[boxId].style.setProperty("background-color", "#ACA")
-  console.log(boxId);
-  if ( winner(mark) ) {console.log("winner")};
 };
 
 function winner(mark) {
   if (mark == "X") {
     for (let i = 0; i < winningCombos.length; i++) {
-      if ( winningCombos[i].every(idx => playerIndices.includes(idx)) ) return true; 
+      if ( winningCombos[i].every(idx => playerIndices.includes(idx)) ) {return true}; 
     };
   } else if (mark == "O") {
     for (let j = 0; j < winningCombos.length; j++) {
-      if ( winningCombos[j].every(idx => compIndices.includes(idx)) ) return true;
+      if ( winningCombos[j].every(idx => compIndices.includes(idx)) ) { return true };
     };
   };
   return false
@@ -125,5 +165,12 @@ function game() {
   reset();
 };
 
+class BoardNode {
+  constructor(value, children, ) {
+    this.value = value;
+    this.children = [];
+  };
+};
 
 game();
+
